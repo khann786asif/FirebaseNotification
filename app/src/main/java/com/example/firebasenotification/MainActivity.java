@@ -41,8 +41,13 @@ public class MainActivity extends AppCompatActivity {
                         String token = task.getResult();
 
                         Log.d(TAG, "onComplete: "+token);
-                        textView.setText("Token generated");
                     }
                 });
+
+        if(getIntent() != null){
+            for (String key : getIntent().getExtras().keySet()){
+                textView.append(getIntent().getExtras().getString(key)+"\n");
+            }
+        }
     }
 }
